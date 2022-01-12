@@ -1193,7 +1193,7 @@ class ReferenceExecutor implements ExecutorImplementation
             $fieldPath   = $path;
             $fieldPath[] = $responseName;
             $result      = $this->resolveField($parentType, $rootValue, $fieldNodes, $fieldPath);
-            if ($result === static::$UNDEFINED) {
+            if ($result === static::$UNDEFINED || $result === null) {
                 continue;
             }
             if (! $containsPromise && $this->isPromise($result)) {
